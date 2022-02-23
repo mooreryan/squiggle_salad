@@ -1,0 +1,26 @@
+(lang dune 3.0)
+
+(name parallel_rpsblast)
+
+(generate_opam_files true)
+
+(source
+ (github mooreryan/squiggle_salad))
+
+(authors "Ryan M. Moore")
+
+(maintainers "Ryan M. Moore")
+
+(license "Apache-2.0 OR MIT")
+
+(documentation https://github.com/mooreryan/squiggle_salad)
+
+(package
+ (name parallel_rpsblast)
+ (version 0.1.0)
+ (synopsis "Small helper scirpts for homology search")
+ (description "Small helper scirpts for homology search")
+ ;; TODO depends
+ (depends ocaml dune bio_io cmdliner core little_logger ppx_jane shexp)
+ (tags
+  (bioinformatics)))

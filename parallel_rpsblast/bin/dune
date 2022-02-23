@@ -1,0 +1,6 @@
+(executable
+ (public_name parallel_rpsblast)
+ (name main)
+ (libraries bio_io cmdliner core shexp.process little_logger)
+ (preprocess
+  (pps ppx_jane)))
