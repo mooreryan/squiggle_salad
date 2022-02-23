@@ -18,9 +18,17 @@
 (package
  (name parallel_rpsblast)
  (version 0.1.0)
- (synopsis "Small helper scirpts for homology search")
- (description "Small helper scirpts for homology search")
+ (synopsis "Parallel RPS-BLAST")
+ (description "Splits query sequences, runs an instance of RPS-BLAST on each query in parallel, then collates the results.")
  ;; TODO depends
- (depends ocaml dune bio_io cmdliner core little_logger ppx_jane shexp)
+ (depends
+   ocaml
+  (dune (>= "3.0"))
+  (bio_io (>= "0.4.0"))
+  (cmdliner (>= "1.1.0"))
+   core
+  (little_logger (>= "0.2.0"))
+   ppx_jane
+   shexp)
  (tags
   (bioinformatics)))
