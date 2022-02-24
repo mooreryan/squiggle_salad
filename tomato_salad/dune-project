@@ -1,0 +1,30 @@
+(lang dune 3.0)
+
+(name tomato_salad)
+
+(generate_opam_files true)
+
+(source
+ (github mooreryan/squiggle_salad))
+
+(authors "Ryan M. Moore")
+
+(maintainers "Ryan M. Moore")
+
+(license "Apache-2.0 OR MIT")
+
+(documentation https://github.com/mooreryan/squiggle_salad)
+
+(package
+ (name tomato_salad)
+ (version 0.1.0)
+ (synopsis "Random programs of a savory nature")
+ (description "Random programs of a savory nature")
+ ;; TODO depends
+ (depends
+   ocaml
+  (dune (>= "3.0"))
+  (bio_io (>= "0.4.0"))
+   core
+   ppx_jane
+   stdio))
