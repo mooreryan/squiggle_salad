@@ -1,6 +1,6 @@
 (executable
  (public_name mask_alignment)
  (name mask_alignment)
- (libraries bio_io core re2)
+ (libraries bio_io core)
  (preprocess
   (pps ppx_jane)))
