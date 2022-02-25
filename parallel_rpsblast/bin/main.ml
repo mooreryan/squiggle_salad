@@ -46,9 +46,8 @@ module Opts = struct
     let check_query opts =
       if not (file_exists opts.query) then failwith "query file does not exist"
     in
-    let check_db opts =
-      if not (file_exists opts.db) then failwith "target db does not exist"
-    in
+    (* TODO [check_db] get a glob based on the name, then check if there are DB
+       files there. *)
     let check_num_threads opts =
       if opts.num_threads < 1 then failwith "num_threads should be > 0"
     in
@@ -57,7 +56,6 @@ module Opts = struct
     in
     check_outdir opts;
     check_query opts;
-    check_db opts;
     check_num_threads opts;
     check_max_tries opts;
     ()
@@ -113,7 +111,7 @@ end = struct
   end
 
   (* TODO move this somewhere else. *)
-  let version = "0.1.0"
+  let version = "0.1.1"
 
   let query_term =
     let doc = "Path to query sequences" in
@@ -121,7 +119,9 @@ end = struct
 
   let db_term =
     let doc = "Path to target DB" in
-    Arg.(required & pos 1 (some non_dir_file) None & info [] ~docv:"DB" ~doc)
+    (* The db path will not always be a path to a real file. It is often just a
+       "name" and the actual DB will have various suffices. *)
+    Arg.(required & pos 1 (some string) None & info [] ~docv:"DB" ~doc)
 
   let outdir_term =
     let doc = "Out directory" in

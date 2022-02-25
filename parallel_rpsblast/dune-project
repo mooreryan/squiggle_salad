@@ -17,7 +17,7 @@
 
 (package
  (name parallel_rpsblast)
- (version 0.1.0)
+ (version 0.1.1)
  (synopsis "Parallel RPS-BLAST")
  (description "Splits query sequences, runs an instance of RPS-BLAST on each query in parallel, then collates the results.")
  ;; TODO depends

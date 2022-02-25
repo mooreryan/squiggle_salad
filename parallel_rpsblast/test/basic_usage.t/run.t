@@ -6,6 +6,10 @@ Make the target DB
 
   $ makeprofiledb -in rnr_target
 
+Move the target list file as in most DBs it will not be present.
+
+  $ mv rnr_target _rnr_target
+
 Rpsblast can have different names
 
   $ RPSBLAST=`which rpsblast` || RPSBLAST=`which rpsblast+`
