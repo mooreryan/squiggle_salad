@@ -1,0 +1,8 @@
+##sequence-region A0A829L0B0 1 104
+##sequence-region E1IJ12 1 104
+##sequence-region E1M6N6 1 560
+E1M6N6	UniProtKB	Domain	14	108	.	.	.	Note=ATP-cone;Ontology_term=ECO:0000259;evidence=ECO:0000259|PROSITE:PS51161	
+##sequence-region A0A7Z7PDD3 1 559
+A0A7Z7PDD3	UniProtKB	Domain	430	555	.	.	.	Note=Glycine radical;Ontology_term=ECO:0000259;evidence=ECO:0000259|PROSITE:PS51149	
+A0A7Z7PDD3	UniProtKB	Coiled coil	357	377	.	.	.	Ontology_term=ECO:0000256;evidence=ECO:0000256|SAM:Coils	
+A0A7Z7PDD3	UniProtKB	Modified residue	528	528	.	.	.	Note=Glycine radical;Ontology_term=ECO:0000256;evidence=ECO:0000256|PROSITE-ProRule:PRU00493	

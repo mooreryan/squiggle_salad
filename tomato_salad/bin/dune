@@ -1,6 +1,6 @@
-(executable
- (public_name mask_alignment)
- (name mask_alignment)
- (libraries bio_io core)
+(executables
+ (public_names mask_alignment link_fasta_and_gff)
+ (names mask_alignment link_fasta_and_gff)
+ (libraries bio_io cmdliner core tomato_salad)
  (preprocess
   (pps ppx_jane)))
