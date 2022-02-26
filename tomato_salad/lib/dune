@@ -1,5 +1,5 @@
 (library
  (name tomato_salad)
- (libraries core)
+ (libraries base)
  (preprocess
   (pps ppx_jane)))

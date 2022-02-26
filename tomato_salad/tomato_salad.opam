@@ -13,7 +13,7 @@ depends: [
   "ocaml"
   "dune" {>= "3.0" & >= "3.0"}
   "bio_io" {>= "0.4.0"}
-  "core"
+  "base"
   "ppx_jane"
   "stdio"
   "odoc" {with-doc}

@@ -1,11 +1,24 @@
-open! Core
+open! Base
+
+(* I keep switching Base/Core, so here is some compatibility functions. *)
+module Compat = struct
+  module In_channel = Stdio.In_channel
+
+  let eprintf = Stdio.eprintf
+
+  let exit = Caml.exit
+
+  let file_exists = Caml.Sys.file_exists
+end
+
+include Compat
 
 let abort ?(exit_code = 1) msg =
   let () = eprintf "%s\n" msg in
   exit exit_code
 
 let abort_unless_file_exists fname =
-  if not (Sys.file_exists_exn fname) then
+  if not (file_exists fname) then
     abort [%string "error: file '%{fname}' does not exist"]
 
 let with_file_fold_lines ~f ~init fname =

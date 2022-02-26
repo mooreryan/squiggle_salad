@@ -1,5 +1,9 @@
-open! Core
+open! Base
 module U = Tomato_salad.Utils
+
+let print_endline = Stdio.print_endline
+
+let exit = Caml.exit
 
 module Cli = struct
   open Cmdliner
