@@ -6,6 +6,8 @@ let print_endline = Stdio.print_endline
 let exit = Caml.exit
 
 module Cli = struct
+  let version = "0.1.0"
+
   open Cmdliner
 
   type opts = { fasta : string; gff : string }
@@ -30,7 +32,7 @@ module Cli = struct
         `Pre "  \\$ link_fasta_and_gff seqs.faa seqs.gff3 > seqs_linked.gff3";
       ]
     in
-    Cmd.info "link_fasta_and_gff" ~doc ~man
+    Cmd.info "link_fasta_and_gff" ~doc ~man ~version
 
   let term = Term.(const make_opts $ fasta_term $ gff_term)
 
