@@ -1,6 +1,14 @@
 (executables
- (public_names mask_alignment link_fasta_and_gff pick_lines)
- (names mask_alignment link_fasta_and_gff pick_lines)
+ (public_names
+   btab_hit_info
+   mask_alignment
+   link_fasta_and_gff
+   pick_lines)
+ (names
+   btab_hit_info
+   mask_alignment
+   link_fasta_and_gff
+   pick_lines)
  (libraries bio_io base cmdliner stdio tomato_salad)
  (preprocess
   (pps ppx_jane)))
