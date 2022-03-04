@@ -1,5 +1,6 @@
 open! Base
 module U = Tomato_salad.Utils
+module Oc = Stdio.Out_channel
 
 module Cli = struct
   let version = "0.1.0"
@@ -73,10 +74,14 @@ end
 
 let process_btab fname target_info =
   let open Bio_io.Mmseqs in
+  Oc.prerr_endline "LOG -- Reading btab";
   let queries =
-    In_channel.with_file_fold_records_exn fname
+    In_channel.with_file_foldi_records_exn fname
       ~init:(Map.empty (module String))
-      ~f:(fun queries r ->
+      ~f:(fun i queries r ->
+        if Int.(i > 0 && i % 200000 = 0) then (
+          Oc.fprintf Oc.stderr "Btab line: %d\r" i;
+          Oc.flush Oc.stderr);
         (* Use the info instead of the actual target if it is present. *)
         let target =
           Option.value ~default:r.target @@ Map.find target_info r.target
@@ -93,6 +98,7 @@ let process_btab fname target_info =
                 total_hits = total_hits + 1;
               }))
   in
+  Oc.prerr_endline "LOG -- Printing results";
   Map.iteri queries
     ~f:(fun ~key:query ~data:{ scores; total_bits; total_hits } ->
       Map.iteri scores ~f:(fun ~key:target ~data:scores ->
@@ -111,5 +117,6 @@ let () =
   let opts : Cli.opts =
     match Cli.parse () with `Run file -> file | `Exit code -> Caml.exit code
   in
+  Oc.prerr_endline "LOG -- Reading hit info";
   let hit_info = Hit_info.read_file opts.hit_info in
   process_btab opts.btab hit_info
