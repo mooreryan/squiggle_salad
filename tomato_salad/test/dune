@@ -1,4 +1,5 @@
 (cram
  (deps
    %{bin:link_fasta_and_gff}
-   %{bin:mask_alignment}))
+   %{bin:mask_alignment}
+   %{bin:pick_lines}))
